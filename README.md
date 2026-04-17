@@ -1,69 +1,375 @@
 # OpenCode Skills Repository
 
-A collection of specialized automation skills designed to extend the capabilities of OpenCode.
+A collection of special commands (called "skills") that make OpenCode even more powerful. These skills help you:
+- Manage MCP servers
+- Add custom AI providers
+- Organize your conversations
+- And more!
 
-## Overview
+---
 
-OpenCode skills are instructional sets that enable the assistant to execute complex, multi-step workflows via slash commands. These skills extend the functionality of OpenCode, allowing for system management, external API integration, and the automation of software engineering tasks.
+## What Are These Skills?
 
-## Installation
+Think of these as **plugins** or **extensions** for OpenCode. Once installed, you can activate them by typing a `/` (slash) followed by the skill name.
 
-Follow these procedures to integrate these skills into your OpenCode environment.
+**Example:**
+- Type `/opencode-mcp` to manage MCP servers
+- Type `/opencode-sessions` to see your past conversations
 
-### 1. Prerequisites
-OpenCode must be installed and configured on the local system.
+---
 
-### 2. Directory Configuration
-OpenCode scans the `~/.agents/skills/` directory for available slash commands. Create this directory if it does not already exist:
+## Quick Start for Beginners
+
+### Prerequisites
+
+You need:
+1. **OpenCode** - The AI coding assistant (get it from [opencodes.dev](https://opencodes.dev))
+2. **Terminal/Command Line** - Any terminal app on your computer
+
+---
+
+## Step-by-Step Installation
+
+### Step 1: Download This Repository
+
+You need to get the skill files onto your computer. Choose one method:
+
+#### Option A: Using Git (Recommended if you have git installed)
+
+1. Open your terminal
+2. Navigate to where you want to save this:
+   ```bash
+   cd ~/Documents
+   ```
+3. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/opencode-skills.git
+   ```
+
+#### Option B: Download as ZIP
+
+1. Go to the GitHub page for this repository
+2. Click the green "Code" button
+3. Click "Download ZIP"
+4. Unzip the file to somewhere on your computer (like your Documents folder)
+
+---
+
+### Step 2: Install the Skills
+
+Now you'll "teach" OpenCode about these skills by linking them to the right folder.
+
+#### Where Do Skills Go?
+
+OpenCode looks for skills in this folder on your computer:
+```
+~/.agents/skills/
+```
+
+(The `~` means "your home folder" - on Mac it's `/Users/yourname/`, on Linux it's `/home/yourname/`)
+
+#### Installation Steps
+
+1. **Open your terminal** (Terminal app on Mac, or Command Prompt/PowerShell on Windows)
+
+2. **Create the skills folder** (if it doesn't exist):
+   ```bash
+   mkdir -p ~/.agents/skills
+   ```
+
+3. **Navigate to where you saved this repository**:
+   
+   If you used git (Option A):
+   ```bash
+   cd ~/Documents/opencode-skills
+   ```
+   
+   If you downloaded the ZIP (Option B), navigate to wherever you unzipped it:
+   ```bash
+   cd ~/Documents/opencode-skills  # adjust path as needed
+   ```
+
+4. **Create symbolic links** (shortcuts) for each skill:
+   
+   ```bash
+   ln -s "$(pwd)/skills/opencode-mcp" ~/.agents/skills/opencode-mcp
+   ln -s "$(pwd)/skills/opencode-add-provider" ~/.agents/skills/opencode-add-provider
+   ln -s "$(pwd)/skills/opencode-sessions" ~/.agents/skills/opencode-sessions
+   ln -s "$(pwd)/skills/opencode-session-migrate" ~/.agents/skills/opencode-session-migrate
+   ```
+   
+   **What this does:** Creates shortcuts in the `~/.agents/skills/` folder that point to the actual skill files.
+
+---
+
+### Step 3: Restart OpenCode
+
+OpenCode needs to reload to see the new skills.
+
+1. **Close** OpenCode completely
+2. **Reopen** OpenCode
+3. **Test it:** Type `/` (forward slash) in the chat box
+
+You should see suggestions for the new skills!
+
+---
+
+## 📋 Copy & Paste Commands
+
+Here are the complete commands you can copy and paste into your terminal:
+
+### Install All Skills (One-Shot Commands)
+
+```bash
+# Create the skills directory
+mkdir -p ~/.agents/skills
+
+# Navigate to the repository folder (change this to where you cloned/downloaded it)
+cd ~/Documents/opencode-skills
+
+# Create links for all skills
+ln -s "$(pwd)/skills/opencode-mcp" ~/.agents/skills/opencode-mcp
+ln -s "$(pwd)/skills/opencode-add-provider" ~/.agents/skills/opencode-add-provider
+ln -s "$(pwd)/skills/opencode-sessions" ~/.agents/skills/opencode-sessions
+ln -s "$(pwd)/skills/opencode-session-migrate" ~/.agents/skills/opencode-session-migrate
+
+echo "✓ Skills installed! Now restart OpenCode."
+```
+
+---
+
+## 🔧 Installing Individual Skills
+
+Don't want all skills? Just install the ones you need:
+
+### Only MCP Manager (`/opencode-mcp`)
+
 ```bash
 mkdir -p ~/.agents/skills
+ln -s "/path/to/opencode-skills/skills/opencode-mcp" ~/.agents/skills/opencode-mcp
 ```
 
-### 3. Installation via Symlink
-It is recommended to symlink the skills from this repository to the agents directory. This ensures that the local installation remains synchronized with updates to the repository.
+**What it does:** Lets you add and manage MCP servers that extend OpenCode's capabilities.
 
-**Example: Installing the `opencode-mcp` skill**
+### Only Add Provider (`/opencode-add-provider`)
+
 ```bash
-# Replace [REPO_PATH] with the absolute path to the cloned repository
-ln -s [REPO_PATH]/skills/opencode-mcp ~/.agents/skills/opencode-mcp
+mkdir -p ~/.agents/skills
+ln -s "/path/to/opencode-skills/skills/opencode-add-provider" ~/.agents/skills/opencode-add-provider
 ```
 
-### 4. Activation
-1. **Restart OpenCode**: The application must be restarted to detect new skills in the directory.
-2. **Verification**: Invoke the `/` command in the OpenCode interface to verify that the installed skills appear in the suggestions list.
+**What it does:** Helps you add custom AI providers (other AI models) to OpenCode.
+
+### Only Sessions (`/opencode-sessions`)
+
+```bash
+mkdir -p ~/.agents/skills
+ln -s "/path/to/opencode-skills/skills/opencode-sessions" ~/.agents/skills/opencode-sessions
+```
+
+**What it does:** Manage your conversation history - view, resume, and export past chats.
+
+### Only Session Migrate (`/opencode-session-migrate`)
+
+```bash
+mkdir -p ~/.agents/skills
+ln -s "/path/to/opencode-skills/skills/opencode-session-migrate" ~/.agents/skills/opencode-session-migrate
+```
+
+**What it does:** Move your chat history when you rename or move a project folder.
+
+---
+
+## Troubleshooting
+
+### "Command not found: ln"
+
+If you're on **Windows**, the `ln` command might not work. Try using copy instead:
+
+```bash
+mkdir -p ~/.agents/skills
+cp -r "C:\path\to\opencode-skills\skills\opencode-mcp" ~/.agents/skills/
+cp -r "C:\path\to\opencode-skills\skills\opencode-add-provider" ~/.agents/skills/
+cp -r "C:\path\to\opencode-skills\skills\opencode-sessions" ~/.agents/skills/
+cp -r "C:\path\to\opencode-skills\skills\opencode-session-migrate" ~/.agents/skills/
+```
+
+### Skills don't appear after restart
+
+1. Check the skills directory exists:
+   ```bash
+   ls ~/.agents/skills/
+   ```
+   
+   You should see folders like `opencode-mcp`, `opencode-sessions`, etc.
+
+2. Make sure the links point to actual files:
+   ```bash
+   ls -la ~/.agents/skills/
+   ```
+   
+   You should see arrows (`->`) pointing to real files.
+
+3. Try restarting OpenCode again (close completely and reopen)
+
+### "No such file or directory"
+
+Make sure:
+- You're in the right folder where you cloned/downloaded the repo
+- The paths in the `ln -s` command point to the actual skill folders
+
+---
+
+## 💡 How to Use These Skills
+
+Once installed, you activate them by typing in OpenCode:
+
+| Command | What it does |
+|---------|--------------|
+| `/opencode-mcp` | Add, configure, or debug MCP servers |
+| `/opencode-add-provider` | Add new AI providers to OpenCode |
+| `/opencode-sessions` | See and manage past conversations |
+| `/opencode-session-migrate` | Move chat history when you move folders |
+
+**Example usage:**
+
+To add an MCP server, you might type:
+```
+/opencode-mcp Add the vidIQ MCP server
+```
+
+To see your past conversations:
+```
+/opencode-sessions List my sessions
+```
+
+---
+
+## 📁 What's Inside This Repository?
+
+```
+opencode-skills/
+├── skills/
+│   ├── opencode-add-provider/     # Add custom AI providers
+│   │   └── SKILL.md
+│   ├── opencode-mcp/              # MCP server manager
+│   │   └── SKILL.md
+│   ├── opencode-sessions/         # Conversation history manager
+│   │   └── SKILL.md
+│   └── opencode-session-migrate/  # Move sessions between folders
+│       └── SKILL.md
+└── README.md                      # This file!
+```
+
+---
+
+## Getting Help
+
+If you're stuck:
+
+1. **Check OpenCode's docs**: [opencodes.dev/docs](https://opencodes.dev/docs)
+2. **Try the `/` command** in OpenCode - it will show available skills
+3. **Check file paths** - make sure the repository folder path is correct
+
+---
+
+## For Your AI Assistant
+
+To install these skills, paste this prompt into your AI assistant:
+
+```
+Please help me install the OpenCode skills from the repository at [YOUR_PATH_HERE].
+
+I need to:
+1. Create the ~/.agents/skills/ directory
+2. Symlink these skill folders:
+   - opencode-mcp
+   - opencode-add-provider  
+   - opencode-sessions
+   - opencode-session-migrate
+
+After installation, verify the skills are in place and tell me to restart OpenCode.
+```
 
 ---
 
 ## Available Skills
 
 ### `/opencode-mcp` — MCP Manager
-Manages the lifecycle of Model Context Protocol (MCP) servers.
-- **Function**: Automates the installation, configuration, and debugging of MCP servers.
-- **Use Case**: Integrating remote servers (e.g., vidIQ for YouTube research) or local servers (e.g., Puppeteer for browser automation) without manual JSON editing.
-- **Capabilities**: 
-  - Configuration management in `~/.config/opencode/`
-  - API key and OAuth integration
-  - Connection diagnostics and health checks
+
+Manage Model Context Protocol (MCP) servers that extend OpenCode's capabilities.
+
+**Use it when you want to:**
+- Add a new MCP server
+- Debug MCP connections
+- Configure authentication
+- List installed MCP servers
+
+**Example:** "Add the vidIQ MCP server"
+
+---
 
 ### `/opencode-add-provider` — Custom LLM Providers
-Facilitates the connection of OpenCode to OpenAI-compatible LLM providers.
-- **Function**: Extracts base URLs and model identifiers from API documentation to automate provider configuration.
-- **Use Case**: Integrating niche or self-hosted LLMs not included in the default provider list.
 
-### `/opencode-sessions` — Session and History Manager
-Provides advanced control over conversation context.
-- **Function**: Enables the listing, resumption, and exportation of specific conversation sessions.
-- **Use Case**: Managing multiple project contexts independently to maintain clean conversation history.
+Add custom OpenAI-compatible AI providers to OpenCode.
+
+**Use it when you want to:**
+- Connect to alternative AI models
+- Use self-hosted LLMs
+- Add providers not in the default list
+
+**Example:** "Add a custom provider with this API endpoint"
+
+---
+
+### `/opencode-sessions` — Session Manager
+
+Manage your conversation history, switch between past sessions, and export transcripts.
+
+**Use it when you want to:**
+- Find a previous conversation
+- Resume work from last week
+- Export chat history to a file
+- Switch between projects
+
+**Example:** "List my past sessions"
+
+---
+
+### `/opencode-session-migrate` — Session Migration
+
+Move your chat history when you rename or relocate project folders.
+
+**Use it when you want to:**
+- Rename a project folder
+- Move a project to a new location
+- Relink sessions to the new path
+
+**Example:** "I moved my project from /old/path to /new/path"
 
 ---
 
 ## Contributing
 
-Contributions to the skills library are welcome. To contribute a new skill:
+Want to add a new skill?
 
-1. **Development**: Create the skill following the OpenCode specification (SKILL.md with appropriate YAML frontmatter).
-2. **Validation**: Verify that the skill is correctly invoked via its slash command.
-3. **Submission**: Submit a Pull Request adding the skill folder to the `skills/` directory.
+1. Create a folder in `skills/` with your skill name
+2. Add a `SKILL.md` file with this frontmatter:
+
+```yaml
+---
+name: your-skill-name
+description: What this skill does
+user-invokable: true
+disable-model-invocation: false
+---
+```
+
+3. Write the skill instructions
+4. Submit a Pull Request!
+
+---
 
 ## License
+
 MIT

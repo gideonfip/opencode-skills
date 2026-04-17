@@ -113,7 +113,7 @@ You should see suggestions for the new skills!
 
 ---
 
-## 📋 Copy & Paste Commands
+## Copy & Paste Commands
 
 Here are the complete commands you can copy and paste into your terminal:
 
@@ -244,7 +244,7 @@ To see your past conversations:
 
 ---
 
-## 📁 What's Inside This Repository?
+## What's Inside This Repository?
 
 ```
 opencode-skills/

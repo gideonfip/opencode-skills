@@ -1,9 +1,11 @@
 # OpenCode Skills Repository
 
-A collection of special commands (called "skills") that make OpenCode even more powerful. These skills help you:
-- Manage MCP servers
+A collection of skills to automate the boring workflows in OpenCode. These skills help you:
 - Add custom AI providers
+- Manage MCP servers
 - Organize your conversations
+
+Note: If you are here from [freetiermodels.com](https://freetiermodels.com/), download and use the `opencode-add-provider` skill.
 
 ---
 
@@ -12,6 +14,7 @@ A collection of special commands (called "skills") that make OpenCode even more 
 Think of these as **plugins** or **extensions** for OpenCode. Once installed, you can activate them by typing a `/` (slash) followed by the skill name.
 
 **Example:**
+- 
 - Type `/opencode-mcp` to manage MCP servers
 - Type `/opencode-sessions` to see your past conversations
 
@@ -319,6 +322,8 @@ Add custom OpenAI-compatible AI providers to OpenCode.
 
 **Example:** "Add a custom provider with this API endpoint"
 
+Check out [freetiermodels.com](https://freetiermodels.com/) for all AI providers that offer free tiers.
+
 ---
 
 ### `/opencode-sessions` — Session Manager
@@ -345,9 +350,3 @@ Move your chat history when you rename or relocate project folders.
 - Relink sessions to the new path
 
 **Example:** "I moved my project from /old/path to /new/path"
-
----
-
-## License
-
-MIT

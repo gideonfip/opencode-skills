@@ -4,7 +4,6 @@ A collection of special commands (called "skills") that make OpenCode even more 
 - Manage MCP servers
 - Add custom AI providers
 - Organize your conversations
-- And more!
 
 ---
 
@@ -138,7 +137,7 @@ echo "✓ Skills installed! Now restart OpenCode."
 
 ---
 
-## 🔧 Installing Individual Skills
+## Installing Individual Skills
 
 Don't want all skills? Just install the ones you need:
 
@@ -220,7 +219,7 @@ Make sure:
 
 ---
 
-## 💡 How to Use These Skills
+## How to Use These Skills
 
 Once installed, you activate them by typing in OpenCode:
 
@@ -346,27 +345,6 @@ Move your chat history when you rename or relocate project folders.
 - Relink sessions to the new path
 
 **Example:** "I moved my project from /old/path to /new/path"
-
----
-
-## Contributing
-
-Want to add a new skill?
-
-1. Create a folder in `skills/` with your skill name
-2. Add a `SKILL.md` file with this frontmatter:
-
-```yaml
----
-name: your-skill-name
-description: What this skill does
-user-invokable: true
-disable-model-invocation: false
----
-```
-
-3. Write the skill instructions
-4. Submit a Pull Request!
 
 ---
 

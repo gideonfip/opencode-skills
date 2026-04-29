@@ -15,7 +15,7 @@ Think of these as **plugins** or **extensions** for OpenCode. Once installed, yo
 
 **Example:**
 - 
-- Type `/opencode-mcp` to manage MCP servers
+- Type `/opencode-add-mcp` to manage MCP servers
 - Type `/opencode-sessions` to see your past conversations
 
 ---
@@ -94,7 +94,7 @@ OpenCode looks for skills in this folder on your computer:
 4. **Create symbolic links** (shortcuts) for each skill:
    
    ```bash
-   ln -s "$(pwd)/skills/opencode-mcp" ~/.agents/skills/opencode-mcp
+   ln -s "$(pwd)/skills/opencode-add-mcp" ~/.agents/skills/opencode-add-mcp
    ln -s "$(pwd)/skills/opencode-add-provider" ~/.agents/skills/opencode-add-provider
    ln -s "$(pwd)/skills/opencode-sessions" ~/.agents/skills/opencode-sessions
    ln -s "$(pwd)/skills/opencode-session-migrate" ~/.agents/skills/opencode-session-migrate
@@ -130,7 +130,7 @@ mkdir -p ~/.agents/skills
 cd ~/Documents/opencode-skills
 
 # Create links for all skills
-ln -s "$(pwd)/skills/opencode-mcp" ~/.agents/skills/opencode-mcp
+ln -s "$(pwd)/skills/opencode-add-mcp" ~/.agents/skills/opencode-add-mcp
 ln -s "$(pwd)/skills/opencode-add-provider" ~/.agents/skills/opencode-add-provider
 ln -s "$(pwd)/skills/opencode-sessions" ~/.agents/skills/opencode-sessions
 ln -s "$(pwd)/skills/opencode-session-migrate" ~/.agents/skills/opencode-session-migrate
@@ -144,11 +144,11 @@ echo "✓ Skills installed! Now restart OpenCode."
 
 Don't want all skills? Just install the ones you need:
 
-### Only MCP Manager (`/opencode-mcp`)
+### Only MCP Manager (`/opencode-add-mcp`)
 
 ```bash
 mkdir -p ~/.agents/skills
-ln -s "/path/to/opencode-skills/skills/opencode-mcp" ~/.agents/skills/opencode-mcp
+ln -s "/path/to/opencode-skills/skills/opencode-add-mcp" ~/.agents/skills/opencode-add-mcp
 ```
 
 **What it does:** Lets you add and manage MCP servers that extend OpenCode's capabilities.
@@ -190,7 +190,7 @@ If you're on **Windows**, the `ln` command might not work. Try using copy instea
 
 ```bash
 mkdir -p ~/.agents/skills
-cp -r "C:\path\to\opencode-skills\skills\opencode-mcp" ~/.agents/skills/
+cp -r "C:\path\to\opencode-skills\skills\opencode-add-mcp" ~/.agents/skills/
 cp -r "C:\path\to\opencode-skills\skills\opencode-add-provider" ~/.agents/skills/
 cp -r "C:\path\to\opencode-skills\skills\opencode-sessions" ~/.agents/skills/
 cp -r "C:\path\to\opencode-skills\skills\opencode-session-migrate" ~/.agents/skills/
@@ -203,7 +203,7 @@ cp -r "C:\path\to\opencode-skills\skills\opencode-session-migrate" ~/.agents/ski
    ls ~/.agents/skills/
    ```
    
-   You should see folders like `opencode-mcp`, `opencode-sessions`, etc.
+   You should see folders like `opencode-add-mcp`, `opencode-sessions`, etc.
 
 2. Make sure the links point to actual files:
    ```bash
@@ -228,7 +228,7 @@ Once installed, you activate them by typing in OpenCode:
 
 | Command | What it does |
 |---------|--------------|
-| `/opencode-mcp` | Add, configure, or debug MCP servers |
+| `/opencode-add-mcp` | Add, configure, or debug MCP servers |
 | `/opencode-add-provider` | Add new AI providers to OpenCode |
 | `/opencode-sessions` | See and manage past conversations |
 | `/opencode-session-migrate` | Move chat history when you move folders |
@@ -237,7 +237,7 @@ Once installed, you activate them by typing in OpenCode:
 
 To add an MCP server, you might type:
 ```
-/opencode-mcp Add the vidIQ MCP server
+/opencode-add-mcp Add the vidIQ MCP server
 ```
 
 To see your past conversations:
@@ -254,7 +254,7 @@ opencode-skills/
 ├── skills/
 │   ├── opencode-add-provider/     # Add custom AI providers
 │   │   └── SKILL.md
-│   ├── opencode-mcp/              # MCP server manager
+│   ├── opencode-add-mcp/              # MCP server manager
 │   │   └── SKILL.md
 │   ├── opencode-sessions/         # Conversation history manager
 │   │   └── SKILL.md
@@ -285,7 +285,7 @@ Please help me install the OpenCode skills from the repository at [YOUR_PATH_HER
 I need to:
 1. Create the ~/.agents/skills/ directory
 2. Symlink these skill folders:
-   - opencode-mcp
+   - opencode-add-mcp
    - opencode-add-provider  
    - opencode-sessions
    - opencode-session-migrate
@@ -297,7 +297,7 @@ After installation, verify the skills are in place and tell me to restart OpenCo
 
 ## Available Skills
 
-### `/opencode-mcp` — MCP Manager
+### `/opencode-add-mcp` — MCP Manager
 
 Manage Model Context Protocol (MCP) servers that extend OpenCode's capabilities.
 

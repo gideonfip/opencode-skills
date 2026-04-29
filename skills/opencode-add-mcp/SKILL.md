@@ -1,5 +1,5 @@
 ---
-name: opencode-mcp
+name: opencode-add-mcp
 description: "Manage MCP (Model Context Protocol) servers in OpenCode. Use this skill whenever the user wants to add a new MCP server, configure an existing MCP server, list configured MCPs, debug MCP connections, authenticate with OAuth-enabled MCPs, or manage MCP settings. Trigger phrases: 'add mcp', 'install mcp', 'configure mcp', 'mcp server', 'list mcp', 'mcp auth', 'mcp debug', 'remove mcp', 'update mcp', 'mcp config', 'connect to mcp'."
 user-invokable: true
 disable-model-invocation: false
